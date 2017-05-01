@@ -1,6 +1,0 @@
-#!/bin/bash 
-script
-pwd
-exit
-./run.exe
-exit

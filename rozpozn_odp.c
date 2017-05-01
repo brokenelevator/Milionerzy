@@ -1,11 +1,11 @@
-#include<ncurses.h>
+#include<curses.h>
 #include<unistd.h>
 #include<stdlib.h>
 #include<string.h>
 #include<time.h>
 
 extern int y, x, c, highlight, wyb, wy2b, odpa, odpb, odpc, odpd, teldp, polnpol, pytdpubl, zmpyt, pytnr, oldpytnr, prawidlodp, mam, otgram, gra, przyj, fra, publa, publb, publc, publd, publrand;
-extern float x1, x2u, x2d, y1, y2u, y2d, temp;
+extern float x1, x2u, x2d, y11, y2u, y2d, temp;
 extern char imie[50];
 extern WINDOW *pion1, *pion2up, *pion2dol;
 
@@ -23,9 +23,10 @@ if(wyb<5)
 		mam=otgram;
 		mvwchgat(pion2up, (y2u/2)+(wyb-1), ((x2u - 20)/2), 20, A_NORMAL, 4, NULL);
 		wrefresh(pion2up);
-		usleep(250000);	
+		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(wyb-1), ((x2u - 20)/2), 20, A_NORMAL, 5, NULL);
 		mvwprintw(pion2up, (y2u/2)+5, ((x2u - 47)/2), "Poprawna odpowiedz. Wygrales(as) %d zlotych", mam);
+		if(mam == 1000 || mam == 32000) mvwprintw(pion2up, (y2u/2)+6, ((x2u - 26)/2), "To jest suma gwarantowana");
 		wrefresh(pion2up);
 		switch(mam)
 			{
@@ -51,80 +52,80 @@ if(wyb<5)
 			mvwchgat(pion1, temp, 1, x1-2, A_NORMAL, 4, NULL);
 			mvwchgat(pion1, temp-1, 1, x1-2, A_NORMAL, 4, NULL);
 			wrefresh(pion1);
-			usleep(250000);
+			napms(250);
 			mvwchgat(pion1, temp, 1, x1-2, A_NORMAL, 3, NULL);
 			mvwchgat(pion1, temp-1, 1, x1-2, A_NORMAL, 3, NULL);
 			wrefresh(pion1);
-			usleep(250000);
+			napms(250);
 			mvwchgat(pion1, temp, 1, x1-2, A_NORMAL, 4, NULL);
 			mvwchgat(pion1, temp-1, 1, x1-2, A_NORMAL, 4, NULL);
 			wrefresh(pion1);
-			usleep(250000);
+			napms(250);
 			mvwchgat(pion1, temp, 1, x1-2, A_NORMAL, 3, NULL);
 			mvwchgat(pion1, temp-1, 1, x1-2, A_NORMAL, 3, NULL);
 			wrefresh(pion1);
-			usleep(250000);
+			napms(250);
 			mvwchgat(pion1, temp, 1, x1-2, A_NORMAL, 4, NULL);
 			mvwchgat(pion1, temp-1, 1, x1-2, A_NORMAL, 4, NULL);
 			wrefresh(pion1);
-			usleep(250000);
+			napms(250);
 			mvwchgat(pion1, temp, 1, x1-2, A_NORMAL, 3, NULL);
 			mvwchgat(pion1, temp-1, 1, x1-2, A_NORMAL, 3, NULL);
 			wrefresh(pion1);
-			usleep(250000);
+			napms(250);
 			mvwchgat(pion1, temp, 1, x1-2, A_NORMAL, 4, NULL);
 			mvwchgat(pion1, temp-1, 1, x1-2, A_NORMAL, 4, NULL);
 			wrefresh(pion1);
-			usleep(250000);
+			napms(250);
 			mvwchgat(pion1, temp, 1, x1-2, A_NORMAL, 3, NULL);
 			mvwchgat(pion1, temp-1, 1, x1-2, A_NORMAL, 3, NULL);
 			wrefresh(pion1);
-			usleep(250000);
+			napms(250);
 			mvwchgat(pion1, temp, 1, x1-2, A_NORMAL, 4, NULL);
 			mvwchgat(pion1, temp-1, 1, x1-2, A_NORMAL, 4, NULL);
 			wrefresh(pion1);
-			usleep(250000);
+			napms(250);
 			mvwchgat(pion1, temp, 1, x1-2, A_NORMAL, 3, NULL);
 			mvwchgat(pion1, temp-1, 1, x1-2, A_NORMAL, 3, NULL);
 			wrefresh(pion1);
-			usleep(250000);
+			napms(250);
 			mvwchgat(pion1, temp, 1, x1-2, A_NORMAL, 4, NULL);
 			mvwchgat(pion1, temp-1, 1, x1-2, A_NORMAL, 4, NULL);
 			wrefresh(pion1);
-			usleep(3000000);
+			napms(3000);
 			break;
 			}
 			default: break;
 			}
 		wrefresh(pion1);
-		usleep(250000);	
+		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(wyb-1), ((x2u - 20)/2), 20, A_NORMAL, 4, NULL);
 		wrefresh(pion2up);
-		usleep(250000);	
+		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(wyb-1), ((x2u - 20)/2), 20, A_NORMAL, 5, NULL);
 		wrefresh(pion2up);
-		usleep(250000);	
+		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(wyb-1), ((x2u - 20)/2), 20, A_NORMAL, 4, NULL);
 		wrefresh(pion2up);
-		usleep(250000);	
+		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(wyb-1), ((x2u - 20)/2), 20, A_NORMAL, 5, NULL);
 		wrefresh(pion2up);
-		usleep(250000);	
+		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(wyb-1), ((x2u - 20)/2), 20, A_NORMAL, 4, NULL);
 		wrefresh(pion2up);
-		usleep(250000);	
+		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(wyb-1), ((x2u - 20)/2), 20, A_NORMAL, 5, NULL);
 		wrefresh(pion2up);
-		usleep(250000);	
+		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(wyb-1), ((x2u - 20)/2), 20, A_NORMAL, 4, NULL);
 		wrefresh(pion2up);
-		usleep(7000000);	
+		napms(7000);	
 		}
 	else
 		{
 		mvwchgat(pion2up, (y2u/2)+(prawidlodp-1), ((x2u - 20)/2), 20, A_NORMAL, 4, NULL);
 		wrefresh(pion2up);
-		usleep(250000);	
+		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(prawidlodp-1), ((x2u - 20)/2), 20, A_NORMAL, 0, NULL);
 		mvwprintw(pion2up, (y2u/2)+5, ((x2u - 40)/2), "%s",  "Niestety to nie jest poprawna odpowiedz.");
 		if(mam < 1000) mam = 0;
@@ -132,25 +133,25 @@ if(wyb<5)
 		if(mam > 32000) mam = 32000;
 		mvwprintw(pion2up, (y2u/2)+6, ((x2u - 30)/2), "Twoja wygrana to %d zlotych", mam);
 		wrefresh(pion2up);
-		usleep(250000);	
+		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(prawidlodp-1), ((x2u - 20)/2), 20, A_NORMAL, 4, NULL);
 		wrefresh(pion2up);
-		usleep(250000);	
+		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(prawidlodp-1), ((x2u - 20)/2), 20, A_NORMAL, 0, NULL);
 		wrefresh(pion2up);
-		usleep(250000);	
+		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(prawidlodp-1), ((x2u - 20)/2), 20, A_NORMAL, 4, NULL);
 		wrefresh(pion2up);
-		usleep(250000);	
+		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(prawidlodp-1), ((x2u - 20)/2), 20, A_NORMAL, 0, NULL);
 		wrefresh(pion2up);
-		usleep(250000);	
+		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(prawidlodp-1), ((x2u - 20)/2), 20, A_NORMAL, 4, NULL);
 		wrefresh(pion2up);
-		usleep(250000);	
+		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(prawidlodp-1), ((x2u - 20)/2), 20, A_NORMAL, 0, NULL);
 		wrefresh(pion2up);
-		usleep(250000);	
+		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(prawidlodp-1), ((x2u - 20)/2), 20, A_NORMAL, 4, NULL);
 		wrefresh(pion2up);
 		gra=0;
@@ -164,10 +165,10 @@ if(wyb==9)
 	{
 	mvwprintw(pion2up, (y2u/2)+5, ((x2u - 65)/2), "Gratuluje! Wypisuje czek na %d zlotych. To sa Twoje pieniadze.", mam);
 	wrefresh(pion2up);
-	usleep(1000000);	
+	napms(1000);	
 	mvwprintw(pion2up, (y2u/2)+7, ((x2u - 49)/2), "%s", "Gdybys gral(a) dalej jaka odpowiedz bys wybral(a)?");
 	wrefresh(pion2up);
-	usleep(1000000);
+	napms(1000);
 	wyb=0;
 	highlight=0;
 	if(odpa==1) mvwchgat(pion2up, (y2u/2), ((x2u - 20)/2), 20, A_NORMAL, 0, NULL);
@@ -233,7 +234,7 @@ if(wyb==9)
 	}
 	while(1)
 	{	
-	if( (highlight==1 && odpa == 0) || (highlight==2 && odpb == 0) || (highlight==3 && odpc == 0) || (highlight==4 && odpd == 0) || (highlight==5 && polnpol == 0) ||  (highlight==6 && teldp == 0) || (highlight==7 && pytdpubl == 0) || (highlight==8 && zmpyt == 0) ) usleep(1);
+	if( (highlight==1 && odpa == 0) || (highlight==2 && odpb == 0) || (highlight==3 && odpc == 0) || (highlight==4 && odpd == 0) || (highlight==5 && polnpol == 0) ||  (highlight==6 && teldp == 0) || (highlight==7 && pytdpubl == 0) || (highlight==8 && zmpyt == 0) ) napms(1);
 	else c = wgetch(pion2up);
 		switch(c)
 		{	
@@ -390,62 +391,62 @@ if(wyb==9)
 		{
 		mvwchgat(pion2up, (y2u/2)+(wyb-1), ((x2u - 20)/2), 20, A_NORMAL, 4, NULL);
 		wrefresh(pion2up);
-		usleep(250000);	
+		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(wyb-1), ((x2u - 20)/2), 20, A_NORMAL, 5, NULL);
 		mvwprintw(pion2up, (y2u/2)+9, ((x2u - 49)/2), "To poprawna odpowiedz. Wygral(a)bys %d zlotych", otgram);
 		wrefresh(pion2up);
-		usleep(250000);	
+		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(wyb-1), ((x2u - 20)/2), 20, A_NORMAL, 4, NULL);
 		wrefresh(pion2up);
-		usleep(250000);	
+		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(wyb-1), ((x2u - 20)/2), 20, A_NORMAL, 5, NULL);
 		wrefresh(pion2up);
-		usleep(250000);	
+		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(wyb-1), ((x2u - 20)/2), 20, A_NORMAL, 4, NULL);
 		wrefresh(pion2up);
-		usleep(250000);	
+		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(wyb-1), ((x2u - 20)/2), 20, A_NORMAL, 5, NULL);
 		wrefresh(pion2up);
-		usleep(250000);	
+		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(wyb-1), ((x2u - 20)/2), 20, A_NORMAL, 4, NULL);
 		wrefresh(pion2up);
-		usleep(250000);	
+		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(wyb-1), ((x2u - 20)/2), 20, A_NORMAL, 5, NULL);
 		wrefresh(pion2up);
-		usleep(250000);	
+		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(wyb-1), ((x2u - 20)/2), 20, A_NORMAL, 4, NULL);
 		wrefresh(pion2up);
-		usleep(250000);	
+		napms(250);	
 		}
 		else
 		{
 		mvwchgat(pion2up, (y2u/2)+(prawidlodp-1), ((x2u - 20)/2), 20, A_NORMAL, 4, NULL);
 		wrefresh(pion2up);
-		usleep(250000);	
+		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(prawidlodp-1), ((x2u - 20)/2), 20, A_NORMAL, 0, NULL);
 		mvwprintw(pion2up, (y2u/2)-9, ((x2u - 31)/2), "%s",  "To nie jest poprawna odpowiedz.");
 		mvwprintw(pion2up, (y2u/2)-7, ((x2u - 33)/2), "%s",  "Grunt to wiedziec kiedy odejsc ;)");
 		mvwprintw(pion2up, (y2u/2)-6, ((x2u - 22)/2), "%s",  "Jeszcze raz gratuluje.");
 		wrefresh(pion2up);
-		usleep(250000);	
+		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(prawidlodp-1), ((x2u - 20)/2), 20, A_NORMAL, 4, NULL);
 		wrefresh(pion2up);
-		usleep(250000);	
+		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(prawidlodp-1), ((x2u - 20)/2), 20, A_NORMAL, 0, NULL);
 		wrefresh(pion2up);
-		usleep(250000);	
+		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(prawidlodp-1), ((x2u - 20)/2), 20, A_NORMAL, 4, NULL);
 		wrefresh(pion2up);
-		usleep(250000);	
+		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(prawidlodp-1), ((x2u - 20)/2), 20, A_NORMAL, 0, NULL);
 		wrefresh(pion2up);
-		usleep(250000);	
+		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(prawidlodp-1), ((x2u - 20)/2), 20, A_NORMAL, 4, NULL);
 		wrefresh(pion2up);
-		usleep(250000);	
+		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(prawidlodp-1), ((x2u - 20)/2), 20, A_NORMAL, 0, NULL);
 		wrefresh(pion2up);
-		usleep(250000);	
+		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(prawidlodp-1), ((x2u - 20)/2), 20, A_NORMAL, 4, NULL);
 		}
 		gra=0;		

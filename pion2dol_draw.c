@@ -1,11 +1,11 @@
-#include<ncurses.h>
+#include<curses.h>
 #include<unistd.h>
 #include<stdlib.h>
 #include<string.h>
 #include<time.h>
 
 extern int y, x, c, highlight, wyb, wy2b, odpa, odpb, odpc, odpd, teldp, polnpol, pytdpubl, zmpyt, pytnr, oldpytnr, prawidlodp, mam, otgram, gra, przyj, fra, publa, publb, publc, publd, publrand;
-extern float x1, x2u, x2d, y1, y2u, y2d, temp;
+extern float x1, x2u, x2d, y11, y2u, y2d, temp;
 extern char imie[50];
 extern WINDOW *pion1, *pion2up, *pion2dol;
 
