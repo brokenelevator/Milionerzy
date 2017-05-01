@@ -14,11 +14,12 @@ int main(int argc, char** argv)
 {
 if(argc == 2 && strcmp(argv[1], "-nointro") == 0) intro=0; 
 else intro=1;
-ttytype[0] = 32; /* Window must have at least N lines in Win32a */ 
-ttytype[1] = 32; /* Window can have a max of N lines in Win32a */ 
-ttytype[2] = 100; /* Window must have at least N columns in Win32a */ 
-ttytype[3] = (unsigned char)100; /* Window can have a max of N columns in Win32a */
+//ttytype[0] = 32; /* Window must have at least N lines in Win32a */ 
+//ttytype[1] = 32; /* Window can have a max of N lines in Win32a */ 
+//ttytype[2] = 100; /* Window must have at least N columns in Win32a */ 
+//ttytype[3] = (unsigned char)100; /* Window can have a max of N columns in Win32a */
 initscr();
+resizeterm(32, 100);
 raw();
 noecho();
 keypad(stdscr, TRUE);
