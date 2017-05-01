@@ -1,2 +1,2 @@
-gcc main.c -omain.exe -lncurses -lgdi32 -mwindows
+gcc main.c -o main.exe -lncurses
 pause
