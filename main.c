@@ -15,12 +15,16 @@ int main(int argc, char** argv)
 if(argc == 2 && strcmp(argv[1], "-nointro") == 0) intro=0; 
 else intro=1;
 initscr();
-resizeterm(32, 100);
+getmaxyx(stdscr, y, x);
+if(y < 32 || x < 100)
+	{
+	resizeterm(32, 100);
+	getmaxyx(stdscr, y, x);
+	}
 raw();
 noecho();
 keypad(stdscr, TRUE);
 curs_set(0);
-getmaxyx(stdscr, y, x);
 mvwprintw(stdscr, ((y - 18)/2)-4, ((x - 73)/2), "%s", "                   $");
 mvwprintw(stdscr, ((y - 18)/2)-3, ((x - 73)/2), "%s", " $$       $$   $   $   $");
 mvwprintw(stdscr, ((y - 18)/2)-2, ((x - 73)/2), "%s", " $$$      $$   $   $   $");
