@@ -96,7 +96,7 @@ napms(1500);
 mvwprintw(pion2up, (y2u/2)+2, ((x2u - 5)/2), "%s", "Danii");
 wrefresh(pion2up);
 napms(1500);
-mvwprintw(pion2up, (y2u/2)+3, ((x2u - 8)/2), "%s", "Szwecjii");
+mvwprintw(pion2up, (y2u/2)+3, ((x2u - 7)/2), "%s", "Szwecji");
 wrefresh(pion2up);
 napms(1500);
 prawidlodp=3;
