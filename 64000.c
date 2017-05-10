@@ -174,7 +174,7 @@ napms(1500);
 mvwprintw(pion2up, (y2u/2)+1, ((x2u - 8)/2), "%s", "z trzech");
 wrefresh(pion2up);
 napms(1500);
-mvwprintw(pion2up, (y2u/2)+2, ((x2u - 9)/2), "%s", "z szedciu");
+mvwprintw(pion2up, (y2u/2)+2, ((x2u - 9)/2), "%s", "z szesciu");
 wrefresh(pion2up);
 napms(1500);
 mvwprintw(pion2up, (y2u/2)+3, ((x2u - 12)/2), "%s", "z dziewieciu");
