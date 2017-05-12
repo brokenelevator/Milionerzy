@@ -231,7 +231,7 @@ napms(1500);
 mvwprintw(pion2up, (y2u/2)+2, ((x2u - 4)/2), "%s", "trzy");
 wrefresh(pion2up);
 napms(1500);
-mvwprintw(pion2up, (y2u/2)+3, ((x2u - 6)/2), "%s", "  cztery");
+mvwprintw(pion2up, (y2u/2)+3, ((x2u - 6)/2), "%s", "cztery");
 wrefresh(pion2up);
 napms(1500);
 prawidlodp=1;

@@ -10,10 +10,8 @@ float x1, x2u, x2d, y11, y2u, y2d, temp;
 char imie[50];
 WINDOW *pion1, *pion2up, *pion2dol;
 
-int main(int argc, char** argv)
+int main()
 {
-if(argc == 2 && strcmp(argv[1], "-nointro") == 0) intro=0; 
-else intro=1;
 initscr();
 getmaxyx(stdscr, y, x);
 if(y < 32 || x < 100)
@@ -44,10 +42,12 @@ mvwprintw(stdscr, ((y - 18)/2)+11, ((x - 73)/2), "%s", "                        
 mvwprintw(stdscr, ((y - 18)/2)+12, ((x - 73)/2), "%s", "                                                                 $$");
 mvwprintw(stdscr, ((y - 18)/2)+13, ((x - 73)/2), "%s", "by Aleksander Lorenc                                             $$   2.0"); 
 attron(A_REVERSE);
-mvwprintw(stdscr, (((y - 18)/2)+16),((x - 17)/2), "%s", " Rozpocznij gre ");
+mvwprintw(stdscr, (((y - 18)/2)+16),((x - 30)/2), "%s", "        Rozpocznij gre        ");
+intro=1;
 highlight=1;
 attroff(A_REVERSE);
-mvwprintw(stdscr, (((y - 18)/2)+17),((x - 7)/2), "%s", "Zakoncz");
+mvwprintw(stdscr, (((y - 18)/2)+17),((x - 30)/2), "%s", " Rozpocznij gre (pomin wstep) ");
+mvwprintw(stdscr, (((y - 18)/2)+18),((x - 7)/2), "%s", "Zakoncz");
 refresh();
 while(1)
 	{	
@@ -57,33 +57,49 @@ while(1)
 			case KEY_UP:
 				if(highlight == 1)
 					{
-					mvwchgat(stdscr, (((y - 18)/2)+16), ((x - 17)/2), 16, A_NORMAL, 0, NULL);
-					mvwchgat(stdscr, (((y - 18)/2)+17), ((x - 17)/2), 16, A_REVERSE, 0, NULL);
-					highlight = 2;
+					mvwchgat(stdscr, (((y - 18)/2)+16), ((x - 30)/2), 30, A_NORMAL, 0, NULL);
+					mvwchgat(stdscr, (((y - 18)/2)+18), ((x - 30)/2), 30, A_REVERSE, 0, NULL);
+					highlight = 3;
 					refresh();
 					break;
 					}
 				if(highlight == 2)
 					{
-					mvwchgat(stdscr, (((y - 18)/2)+17), ((x - 17)/2), 16, A_NORMAL, 0, NULL);
-					mvwchgat(stdscr, (((y - 18)/2)+16), ((x - 17)/2), 16, A_REVERSE, 0, NULL);
+					mvwchgat(stdscr, (((y - 18)/2)+17), ((x - 30)/2), 30, A_NORMAL, 0, NULL);
+					mvwchgat(stdscr, (((y - 18)/2)+16), ((x - 30)/2), 30, A_REVERSE, 0, NULL);
 					highlight = 1;
+					refresh();
+					break;
+					}
+			if(highlight == 3)
+					{
+					mvwchgat(stdscr, (((y - 18)/2)+18), ((x - 30)/2), 30, A_NORMAL, 0, NULL);
+					mvwchgat(stdscr, (((y - 18)/2)+17), ((x - 30)/2), 30, A_REVERSE, 0, NULL);
+					highlight = 2;
 					refresh();
 					break;
 					}
 			case KEY_DOWN:
 				if(highlight == 1)
 					{
-					mvwchgat(stdscr, (((y - 18)/2)+16), ((x - 17)/2), 16, A_NORMAL, 0, NULL);
-					mvwchgat(stdscr, (((y - 18)/2)+17), ((x - 17)/2), 16, A_REVERSE, 0, NULL);
+					mvwchgat(stdscr, (((y - 18)/2)+16), ((x - 30)/2), 30, A_NORMAL, 0, NULL);
+					mvwchgat(stdscr, (((y - 18)/2)+17), ((x - 30)/2), 30, A_REVERSE, 0, NULL);
 					highlight = 2;
 					refresh();
 					break;
 					}
 				if(highlight == 2)
 					{
-					mvwchgat(stdscr, (((y - 18)/2)+17), ((x - 17)/2), 16, A_NORMAL, 0, NULL);
-					mvwchgat(stdscr, (((y - 18)/2)+16), ((x - 17)/2), 16, A_REVERSE, 0, NULL);
+					mvwchgat(stdscr, (((y - 18)/2)+17), ((x - 30)/2), 30, A_NORMAL, 0, NULL);
+					mvwchgat(stdscr, (((y - 18)/2)+18), ((x - 30)/2), 30, A_REVERSE, 0, NULL);
+					highlight = 3;
+					refresh();
+					break;
+					}
+			if(highlight == 3)
+					{
+					mvwchgat(stdscr, (((y - 18)/2)+18), ((x - 30)/2), 30, A_NORMAL, 0, NULL);
+					mvwchgat(stdscr, (((y - 18)/2)+16), ((x - 30)/2), 30, A_REVERSE, 0, NULL);
 					highlight = 1;
 					refresh();
 					break;
@@ -96,7 +112,8 @@ while(1)
 		}
 	if(wyb != 0) break;	
 	}
-if(highlight == 2)
+if(highlight == 2) intro = 0;
+if(highlight == 3)
 	{
 	clear();
 	mvwprintw(stdscr, (y/2), ((x - 14)/2), "%s", "Do zobaczenia!");

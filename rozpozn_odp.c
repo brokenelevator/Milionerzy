@@ -21,9 +21,6 @@ if(wyb<5)
 	if(wyb==prawidlodp)
 		{
 		mam=otgram;
-		mvwchgat(pion2up, (y2u/2)+(wyb-1), ((x2u - 20)/2), 20, A_NORMAL, 4, NULL);
-		wrefresh(pion2up);
-		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(wyb-1), ((x2u - 20)/2), 20, A_NORMAL, 5, NULL);
 		mvwprintw(pion2up, (y2u/2)+5, ((x2u - 47)/2), "Poprawna odpowiedz. Wygrales(as) %d zlotych", mam);
 		if(mam == 1000 || mam == 32000) mvwprintw(pion2up, (y2u/2)+6, ((x2u - 26)/2), "To jest suma gwarantowana");
@@ -119,13 +116,11 @@ if(wyb<5)
 		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(wyb-1), ((x2u - 20)/2), 20, A_NORMAL, 4, NULL);
 		wrefresh(pion2up);
-		napms(7000);	
+		napms(5000);
+		wyb=0;
 		}
 	else
 		{
-		mvwchgat(pion2up, (y2u/2)+(prawidlodp-1), ((x2u - 20)/2), 20, A_NORMAL, 4, NULL);
-		wrefresh(pion2up);
-		napms(250);	
 		mvwchgat(pion2up, (y2u/2)+(prawidlodp-1), ((x2u - 20)/2), 20, A_NORMAL, 0, NULL);
 		mvwprintw(pion2up, (y2u/2)+5, ((x2u - 40)/2), "%s",  "Niestety to nie jest poprawna odpowiedz.");
 		if(mam < 1000) mam = 0;
