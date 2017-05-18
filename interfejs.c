@@ -11,7 +11,7 @@ extern WINDOW *pion1, *pion2up, *pion2dol;
 
 void interfejs()
 {
-if(wyb < 5) highlight=wyb;
+if((wyb < 5) ||  (wyb==5 && polnpol)  ||  (wyb==6 && teldp) ||  (wyb==7 && pytdpubl) ||  (wyb==8 && zmpyt) ||  wyb==9) highlight=wyb;
 else highlight=0;
 wyb=0;
 wy2b=-1;
